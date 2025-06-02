@@ -62,15 +62,19 @@ def main():
 
         if usr_input2 in ["1", "2", "3"]:
             try:
-                num = int(input("How many times do you want to collect: "))
+                if (usr_input2 != "1"):
+                    num = int(input("How many times do you want to collect: "))
+                else:
+                    num = 50
             except ValueError:
                 print("Please enter a valid number.")
                 continue
 
             os.makedirs("./" + '遊戲' + "/" + base_filename, exist_ok=True)
 
-            print("Press 'R' to start recording...")
-            keyboard.wait('r')  # 等待使用者按下 'R'
+            if usr_input2!= "1":
+                print("Press 'R' to start recording...")
+                keyboard.wait('r')  # 等待使用者按下 'R'
 
             while count <= num:
                 count = record_audio(count, base_filename)
@@ -78,8 +82,9 @@ def main():
                 if count == num + 1:
                     print("All recordings complete.")
                 else:
-                    print(f"We have {num - count + 1} times left. Press 'R' to record again.")
-                    keyboard.wait('r')
+                    if usr_input2 != "1":
+                        print(f"We have {num - count + 1} times left. Press 'R' to record again.")
+                        keyboard.wait('r')
 
 if __name__ == "__main__":
     main()

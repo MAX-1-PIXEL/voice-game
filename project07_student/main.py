@@ -34,8 +34,7 @@ if __name__ == "__main__":
             if filename != '':
                 print('[Open first chrome dino](https://chrome-dino-game.github.io/)')
                 k = input("Enter any key")
-                if k != '':
-                    modelPredict.main(filename)
+                modelPredict.main(filename)
             else:
                 print('Error! You have not trained the model yet, please train a version of the model')
         elif usr_input2 == "1" :
