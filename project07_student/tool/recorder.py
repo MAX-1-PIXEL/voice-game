@@ -62,10 +62,7 @@ def main():
 
         if usr_input2 in ["1", "2", "3"]:
             try:
-                if (usr_input2 != "1"):
-                    num = int(input("How many times do you want to collect: "))
-                else:
-                    num = 50
+                num = int(input("How many times do you want to collect: "))
             except ValueError:
                 print("Please enter a valid number.")
                 continue
